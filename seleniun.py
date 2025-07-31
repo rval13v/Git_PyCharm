@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver #Импортируем основной модуль webdriver из библиотеки Selenium — он позволяет управлять браузером (в данном случае, Chrome).
 from selenium.webdriver.chrome.service import Service as ChromeService #Импортируем класс Service, который управляет запуском ChromeDriver. Здесь мы переименовываем его в ChromeService для читаемости.
 from webdriver_manager.chrome import ChromeDriverManager # Импортируем менеджер, который автоматически скачивает и устанавливает нужную версию chromedriver. Это избавляет от необходимости делать это вручную.
@@ -11,3 +13,5 @@ driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverMan
 base_url = 'https://www.saucedemo.com/' #Сохраняем URL-адрес сайта в переменную base_url.
 driver.get(base_url) #Открываем браузер и переходим по адресу, указанному в base_url.
 driver.set_window_size(1920, 1080) #Устанавливаем размер окна браузера вручную, можно применить макс разр. driver.maximize_window()
+time.sleep(5)
+driver.close() # Закрываем окно браузера
