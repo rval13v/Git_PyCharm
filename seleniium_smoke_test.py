@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
-options.add_argument("--headless")
+#options.add_argument("--headless")
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
@@ -109,7 +109,7 @@ assert value_finish_product_1 == value_product_1
 print('Info finish product_1 is good')
 
 finish_product_2 = driver.find_element(By.XPATH, "//*[@id='item_1_title_link']/div")
-value_finish_product_2 = finish_product_1.text
+value_finish_product_2 = finish_product_2.text
 print(value_finish_product_2)
 assert value_finish_product_2 == value_product_2
 print('Info finish product_2 is good')
