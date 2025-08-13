@@ -16,5 +16,6 @@ driver.set_window_size(1920, 1080)
 
 checkbox = driver.find_element(By.XPATH, "//span[@class='rct-checkbox']")
 checkbox.click()
-checkbox.is_selected()
+checkbox_is_selected = driver.find_element(By.CSS_SELECTOR, ".rct-icon-check")
+assert checkbox_is_selected
 print('checkbox is selected')
