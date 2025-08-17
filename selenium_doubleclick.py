@@ -20,7 +20,7 @@ double_click_button = driver.find_element(By.XPATH, "//button[@id='doubleClickBt
 action.double_click(double_click_button).perform()
 print('Двойной клик')
 
-time.sleep(3)
+time.sleep(2)
 right_click_button = driver.find_element(By.XPATH, "//button[@id='rightClickBtn']")
 action.context_click(right_click_button).perform()
 print('Клик правой кнопкой')
@@ -34,3 +34,6 @@ test_right_click = driver.find_element(By.XPATH, "//*[@id = 'rightClickMessage']
 value_test_right_click = test_right_click.text
 assert value_test_right_click == 'You have done a right click'
 print('Right click')
+
+time.sleep(2)
+driver.quit()
