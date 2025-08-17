@@ -14,8 +14,10 @@ base_url = 'https://demoqa.com/checkbox'
 driver.get(base_url)
 driver.set_window_size(1920, 1080)
 
-checkbox = driver.find_element(By.XPATH, "//span[@class='rct-checkbox']")
+checkbox = driver.find_element(By.XPATH, "//label[@for='tree-node-home']")
 checkbox.click()
-checkbox_is_selected = driver.find_element(By.CSS_SELECTOR, ".rct-icon-check")
-assert checkbox_is_selected
-print('checkbox is selected')
+
+# Проверяем input
+checkbox_input = driver.find_element(By.ID, "tree-node-home")
+assert checkbox_input.is_selected()
+print("Checkbox is selected")
