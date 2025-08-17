@@ -23,3 +23,6 @@ date_input.send_keys(Keys.DELETE)
 time.sleep(4)
 current_date = datetime.now().strftime("%08.%27.%2025")
 date_input.send_keys(current_date)
+
+time.sleep(4)
+driver.quit()
