@@ -16,10 +16,17 @@ driver.set_window_size(1920, 1080)
 
 radio_button = driver.find_element(By.XPATH, "(//label[@class='custom-control-label'])[2]")
 radio_button.click()
-not radio_button.is_selected()
-print('radio_button is active')
+
+# Проверяем input
+radio_input = driver.find_element(By.ID, "impressiveRadio")
+assert radio_input.is_selected()
+print("Radio button is selected")
 
 test = driver.find_element(By.XPATH, "//span[@class='text-success']")
 value_text = test.text
 assert value_text == 'Impressive'
-print('radio-button is active!!!')
+print('radio-button is activity!!!')
+
+
+
+
