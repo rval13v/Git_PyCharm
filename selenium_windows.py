@@ -18,7 +18,7 @@ time.sleep(5)
 new_tab = driver.find_element(By.XPATH, "//button[@id='tabButton']")
 new_tab.click()
 driver.switch_to.window(driver.window_handles[1])
-time.sleep(2)
+driver.close()
 driver.switch_to.window(driver.window_handles[0])
 
 
@@ -28,6 +28,6 @@ new_window= driver.find_element(By.XPATH, "//button[@id='windowButton']")
 new_window.click()
 # Переключене между окнами
 driver.switch_to.window(driver.window_handles[1])
-time.sleep(2)
+driver.close()
 driver.switch_to.window(driver.window_handles[0])
 
