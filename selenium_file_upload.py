@@ -23,5 +23,4 @@ check_upload = driver.find_element(By.XPATH, "//input[@id='file']")
 value_check_upload = check_upload.get_attribute("value")
 assert value_check_upload.endswith("screen.png")
 print("Файл загружен")
-
 driver.quit()
