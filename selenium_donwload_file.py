@@ -45,3 +45,5 @@ for file in files:
 files = glob.glob(os.path.join(path_download, "*.*"))
 for file in  files:
     os.remove(file)
+
+driver.quit()
