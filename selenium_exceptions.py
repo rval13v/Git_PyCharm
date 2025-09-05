@@ -33,3 +33,5 @@ except NoSuchElementException:
     button_visible = driver.find_element(By.XPATH, "//button[@id='visibleAfter']")
     button_visible.click()
     print('Click button visible')
+
+    driver.quit()
