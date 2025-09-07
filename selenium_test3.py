@@ -148,4 +148,4 @@ if selected_item is not None:
     print('Checkout: Complete!')
 
     # Закрываем браузер
-    # driver.quit()
+    driver.quit()
