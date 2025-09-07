@@ -116,7 +116,8 @@ if selected_item is not None:
     print('Input post code')
 
     # Жмем продолжить
-    button_continue = driver.find_element(By.XPATH, "//*[@id='continue']").click()
+    button_continue = driver.find_element(By.XPATH, "//*[@id='continue']")
+    button_continue.click()
     print('Click continue')
 
     # Финальная проверка товара и цены
@@ -138,7 +139,8 @@ if selected_item is not None:
     assert value_summary_price == item_total
     print('Total summary price is OK')
 
-    button_finish = driver.find_element(By.XPATH, "//*[@id='finish']").click()
+    button_finish = driver.find_element(By.XPATH, "//*[@id='finish']")
+    button_finish.click()
     print('Click finish button')
 
     checkout_complete = driver.find_element(By.XPATH, "//*[contains(text(), 'Checkout: Complete!')]")
