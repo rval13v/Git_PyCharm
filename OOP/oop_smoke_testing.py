@@ -5,9 +5,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from oop_login import user_name, user_password
 
 # Создаем общий класс
-class Test(): #создаем метод и помещаем в него выызов д-ра, url и открытие страницы
+class Test: #создаем метод и помещаем в него выызов д-ра, url и открытие страницы
     def __init__(self): # коструктор класса чтобы создать и сохранить экземпляр браузера сразу при создании объекта класса. все методы могцт использоывать один браузер
         options = webdriver.ChromeOptions()
         options.add_experimental_option("detach", True)
@@ -15,7 +16,7 @@ class Test(): #создаем метод и помещаем в него выы�
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         self.base_url = 'https://www.saucedemo.com/'
 
-    def test_select_product(self):
+    def open_browser(self):
         self.driver.get(self.base_url)
         self.driver.maximize_window()
         time.sleep(2)
@@ -23,19 +24,19 @@ class Test(): #создаем метод и помещаем в него выы�
         print("Start test")
 
     def login(self):
-        user_name = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='user-name']")))
-        user_name.send_keys("standard_user")
+        user_name_field = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='user-name']")))
+        user_name_field.send_keys(user_name)
         print("Input user name")
 
-        user_password = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='password']")))
-        user_password.send_keys("secret_sauce")
+        user_password_field = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='password']")))
+        user_password_field.send_keys(user_password)
         print("Input password")
 
         login_button = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='login-button']")))
         login_button.click()
         print("Click login button")
 
-    def select_good(self):
+    def choice_product(self):
         select_product = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='add-to-cart-sauce-labs-backpack']")))
         select_product.click()
         print("Click select product")
@@ -45,7 +46,7 @@ class Test(): #создаем метод и помещаем в него выы�
         enter_cart.click()
         print('Enter in cart')
 
-    def check_good_in_cart(self):
+    def check_cart(self):
         check_cart = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='title']")))
         value_check_cart = check_cart.text
         assert value_check_cart == 'Your Cart'
@@ -56,9 +57,9 @@ class Test(): #создаем метод и помещаем в него выы�
 
 # Создаем экземпляр класса
 start_test = Test()
-start_test.test_select_product()  # открываем страницу
+start_test.open_browser()  # открываем страницу
 start_test.login()
-start_test.select_good()
+start_test.choice_product()
 start_test.enter_to_cart()
-start_test.check_good_in_cart()
+start_test.check_cart()
 start_test.quit_driver()
