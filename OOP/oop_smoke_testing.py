@@ -8,8 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from oop_login_page import LoginPage
 
 
-# Создаем общий класс
 class Test: #создаем метод и помещаем в него выызов д-ра, url и открытие страницы
+
     def __init__(self): # коструктор класса чтобы создать и сохранить экземпляр браузера сразу при создании объекта класса. все методы могцт использоывать один браузер
         options = webdriver.ChromeOptions()
         options.add_experimental_option("detach", True)
