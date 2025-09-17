@@ -29,13 +29,11 @@ class Test: #создаем метод и помещаем в него выыз�
         login_page.autorization(login_name="problem_user", login_password="secret_sauce")
 
     def choice_product(self):
-        select_product = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='add-to-cart-sauce-labs-backpack']")))
-        select_product.click()
+        WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='add-to-cart-sauce-labs-backpack']"))).click()
         print("Click select product")
 
     def enter_to_cart(self):
-        enter_cart = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='shopping_cart_container']/a")))
-        enter_cart.click()
+        enter_cart = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='shopping_cart_container']/a"))).click()
         print('Enter in cart')
 
     def check_cart(self):
@@ -53,5 +51,6 @@ start_test.open_browser()  # открываем страницу
 start_test.login()
 start_test.choice_product()
 start_test.enter_to_cart()
+time.sleep(2)
 start_test.check_cart()
 start_test.quit_driver()
